@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; */
+    height: 100vh;
+    padding: 30px;
+    gap: 10px;
+}
+
+.square {
+    background-color: #14bdac;
+    color: rgb(84, 84, 84);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    text-transform: capitalize;
+}
