@@ -1,37 +1,66 @@
+// players are also going to be stored in objects
+// If you need multiples of something (players!), create them with factories
+
+// Player FF sets up player object that takes input that will be string of either 'O' or 'X' mark & adds it to text content of the cell
+const Player = (mark) => {
+    const getMark = () => {
+        return mark;
+    };
+    const setMark = (player, cell) => {
+        cell.textContent = player.getMark();
+    }
+    return {getMark, setMark};
+}
+
 // store the gameboard as an array inside of a Gameboard object
 // Use a module if you only need one of something
 // the module pattern wraps the factory in an IIFE (Immediately Invoked Function Expression).
-const game = (() => {
-    let gameBoard = ['x','o','x','o','x','o','x','o','x'];
-    console.log(gameBoard);
+const gameBoard = (() => {
+    let boardArray = ['x','x','o','o','o','x','x','o','x'];
+    
+    // Create players using player object & add string of nought or cross
+    const firstPlayer = Player('X');
+    const secondPlayer = Player('O');
+
+    let xPoints = 0;
+    let oPoints = 0;
+
+    let player1Points = document.getElementById('player1Points');
+    let player2Points = document.getElementById('player2Points');
+
+    player1Points.textContent = xPoints;
+    player2Points.textContent = oPoints;
+
 
     // render the contents of the gameboard array to the webpage
     function displayBoard() {
-        const gameContainer = document.querySelector('.container');        
+        const gameContainer = document.querySelector('.gameBoard');        
         // for each entry in the array, generate a square div in a grid of 9
-        for (let i = 0; i < gameBoard.length; i++) {
+        for (let i = 0; i < 9; i++) {
             const square = document.createElement('div');
             square.classList.add('square');
-            square.innerHTML = gameBoard[i];
+            // square.innerHTML = boardArray[i];
             gameContainer.appendChild(square);
         }
     }
 
     displayBoard();
-    return gameBoard;
+
+    // const markPosition = (position, playerMarker) => {
+    //     boardArray[position] = playerMarker;
+    // }
+
+    // return { markPosition };
 
   })();
 
 
-// players are also going to be stored in objects
-// If you need multiples of something (players!), create them with factories
-const Player = () => {
-
-}
-
-
 // an object to control the flow of the game itself
 
+// const displayController = () => {
+    // attaches event listeners to the squares of the grid
+    // when one is clicked, call `gameBoard.markPosition()` with the clicked square's position and the current player's symbol
+// } 
 
 
 
