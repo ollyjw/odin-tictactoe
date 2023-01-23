@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    height: 80vh;
+    min-height: 80vh;
     /* padding: 30px; */    
     font-family: sans-serif;
 }
@@ -40,7 +40,7 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
-    height: 20vh;
+    min-height: 20vh;
     font-size: 25px;
     font-weight: bold;
 }
