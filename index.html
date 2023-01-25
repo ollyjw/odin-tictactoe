@@ -10,21 +10,29 @@
 
 <body>
     <div class="main">
-        <div class="players">
-            <div id="player1">
-                <p>PLAYER 1</p>
-                <span id="player1Points">lorem</span>
+        <div class="player-section">
+            <div id="player1">                
+                <p><input type="text" class="player-names" id="player1Input" placeholder="Enter player 1's name here" required></p>
+                <p class="players" id="player1-name">PLAYER 1</p>
+                <!-- <span id="player1Points">lorem</span> -->
             </div>
-            <div id="player2">
-                <p>PLAYER 2</p>
-                <span id="player2Points">ipsum</span>
-            </div>
-            <div class="result"></div>
+            <div id="player2">                
+                <p><input type="text" class="player-names" id="player2Input" placeholder="Enter player 2's name here" required></p>
+                <p class="players" id="player2-name">PLAYER 2</p>
+                <!-- <span id="player2Points">ipsum</span> -->
+            </div>     
+                  
+            <div class="btn-group">
+                <p id="turn"></p>
+                <button class="start-game">Start game</button>
+                <button id="restartBtn">Restart</button>
+            </div>            
         </div>
         
         <div class="container">
-            <div class="gameBoard"></div>
+            <div class="gameBoard"></div>            
         </div>
+       
     </div>    
 
     <script src="script.js"></script>
