@@ -174,6 +174,9 @@ const playRound = (() => {
 // Press New Game btn - display board & add player names to screen
 const startGame = (() => {
     const startBtn = document.querySelector('.start-game');
+    const { boardArray } = gameBoard;
+    const { addClick } = playRound;
+    const { displayMoves } = renderMoves;
 
     // * Moved here so doesnt appear till you click start game
     function displayBoard() {
@@ -193,14 +196,12 @@ const startGame = (() => {
         return function() {
             if (click === 0) {
                 displayBoard();
+            } else if (click >= 1) {
+                location.reload();
             }
             click++;
         }
     }();
-
-    // const { boardArray } = gameBoard;
-    const { addClick } = playRound;
-    const { displayMoves } = renderMoves;
 
     // New game btn click event
     startBtn.addEventListener('click', () => {
@@ -211,6 +212,8 @@ const startGame = (() => {
         const player1Input = document.getElementById('player1Input').value;
         const player2Input = document.getElementById('player2Input').value;
         const playerNames = document.getElementsByClassName('player-names');
+        let container = document.querySelector('.container');
+        let playerSection = document.querySelector('.player-section');
 
         // Assign players to player object & take name + assign marker
         firstPlayer = Player(player1Input, 'X');
@@ -232,8 +235,9 @@ const startGame = (() => {
         }
 
         restartBtn.style.display = 'inline-block';
+        playerSection.style.minHeight = '20vh';
+        container.style.minHeight = '70vh';
         turn.textContent = `${firstPlayer.name}'s (X) turn`;
-        // startBtn.style.display = 'none';
     });
 
 })();
